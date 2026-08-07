@@ -23,7 +23,6 @@ src="https://www.facebook.com/tr?id=1077381135245462&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;position:relative;}
@@ -67,31 +66,6 @@ body{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
 /* Disclaimer Styling */
 .rb-disclaimer {font-size: 10px;color: #2a4a7a;line-height: 1.5;text-align: center;border-top: 1px dashed rgba(42,127,255,0.12);padding-top: 14px;margin-top: 5px;}
 .rb-disclaimer strong {color: #4a6d9e;letter-spacing: 0.5px;}
-
-/* Countdown Container Styling */
-.rb-countdown-container {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 410px;
-  background: rgba(6, 18, 31, 0.85);
-  border: 1px solid rgba(50, 120, 220, 0.25);
-  border-radius: 16px;
-  padding: 12px 20px;
-  text-align: center;
-  font-size: 13px;
-  color: #7a9ac0;
-  backdrop-filter: blur(8px);
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-.rb-countdown-num {
-  font-weight: 700;
-  color: #2a7fff;
-  transition: color 0.3s ease;
-}
-.rb-countdown-num.urgent {
-  color: #ff4d4d;
-}
 </style>
 </head>
 <body>
@@ -157,54 +131,5 @@ body{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
   </div>
 </div>
 
-<div class="rb-countdown-container" id="timer-box">
-  Redirecting in <span class="rb-countdown-num" id="outerTimer">00:01</span> seconds...
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const REDIRECT_URL = "https://t.me/+lEAnBaAhbhxhZGY1";
-  let outerCount = 1;
-  let redirected = false;
-
-  const timerEl = document.getElementById('outerTimer');
-  const timerBox = document.getElementById('timer-box');
-
-  function pad(n) {            
-    return n < 10 ? '0' + n : '' + n;        
-  }
-
-  const outerTimer = setInterval(function () {            
-    outerCount--;            
-    if (timerEl) {
-      timerEl.textContent = '00:' + pad(outerCount);
-    }
-
-    if (outerCount <= 5 && timerEl) {                
-      timerEl.classList.add('urgent');            
-    }
-
-    if (outerCount <= 0) {                
-      clearInterval(outerTimer);                
-      if (timerEl) timerEl.textContent = '00:00';                
-      if (timerBox) {
-        timerBox.innerHTML = "✨ Redirecting you to Telegram...";
-        timerBox.style.borderColor = "rgba(42, 127, 255, 0.6)";
-        timerBox.style.color = "#5599ff";
-      }
-      doRedirect();            
-    }        
-  }, 1000);
-
-  function doRedirect() {            
-    if (redirected) return;            
-    redirected = true;
-
-    setTimeout(function () {                
-      window.location.href = REDIRECT_URL;            
-    }, 300);        
-  }
-});
-</script>
 </body>
 </html>
